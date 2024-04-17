@@ -19,7 +19,7 @@ destroyBtn.addEventListener('click', (event) => {
 
 
 function createBoxes(amount) {
-  
+  const arrayBoxes = [];
   if (amount >= 1 && amount <= 100) {
     for (let i = 0; i < amount; i++) {
       const box = document.createElement('div');
@@ -27,9 +27,10 @@ function createBoxes(amount) {
       box.style.width = `${size}px`;
       box.style.height = `${size}px`;
       box.style.backgroundColor = getRandomHexColor();
-      divBoxes.append(box);
-
+      arrayBoxes.push(box);
+      
     }
+    divBoxes.append(...arrayBoxes);
     input.value = '';
   } else {
       alert('Please enter a number between 1 and 100');
